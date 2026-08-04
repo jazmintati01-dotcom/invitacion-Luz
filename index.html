@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis XV Años - Luz Nerea Reinoso</title>
+
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+
+<body>
+
+    
+
+<!-- ESTRELLAS DEL FONDO (si ya las tienes, déjalas aquí) -->
+<div class="fondo-estrellas">
+    <span>★</span>
+    <span>✧</span>
+    <span>✦</span>
+    <span>☆</span>
+    <span>✦</span>
+    <span>✧</span>
+    <span>★</span>
+    <span>☆</span>
+    <span>✦</span>
+    <span>✧</span>
+    <span>★</span>
+    <span>✦</span>
+    <span>☆</span>
+    <span>✧</span>
+    <span>✦</span>
+    
+</div>
+
+
+<!-- ESTA ES LA NUEVA PORTADA -->
+<div class="portada" onclick="abrirInvitacion()">
+
+    <div class="contenido-portada">
+        ✦
+
+        <h1>Luz Reinoso</h1>
+
+        <h2>Mis XV Años</h2>
+
+        <p>Toca para abrir</p>
+
+        ✦
+    </div>
+
+</div>
+
+
+
+<!-- ESTA ES TU INVITACIÓN ORIGINAL -->
+<div class="invitacion">
+
+
+    <!-- Estrellas decorativas -->
+    <span class="estrella e1">★</span>
+    <span class="estrella e2">✧</span>
+    <span class="estrella e3">★</span>
+    <span class="estrella e4">✧</span>
+    <span class="estrella e5">✦</span>
+    <span class="estrella e6">☆</span>
+
+
+
+    <div class="estrella-principal">
+        ★
+    </div>
+
+
+
+    <h1>
+        LUZ <br>
+        REINOSO
+    </h1>
+
+
+    <h2>
+        Mis XV Años
+    </h2>
+
+
+    <p>
+        ✦ Tengo el honor de invitarte<br>
+        a compartir conmigo una noche muy especial ★
+    </p>
+
+
+
+    <div class="datos">
+
+        <span>
+            Sábado 7 de noviembre de 2026
+        </span>
+
+        <span>
+            21:00 hs
+        </span>
+
+    </div>
+
+    <div class="ubicacion">
+
+    <a href="#" class="boton-mapa">
+        Ver ubicación
+    </a>
+
+
+
+</div>
+
+
+    <div class="vestimenta">
+
+        Código de vestimenta:<br>
+        <b>Elegante Sport</b>
+
+    </div>
+
+
+<div class="contador">
+
+    <h3>
+        Faltan... ✦
+    </h3>
+
+    <div class="tiempo">
+
+        <div>
+            <span id="dias">0</span>
+            <small>Días</small>
+        </div>
+
+        <div>
+            <span id="horas">0</span>
+            <small>Horas</small>
+        </div>
+
+        <div>
+            <span id="minutos">0</span>
+            <small>Min</small>
+        </div>
+
+        <div>
+            <span id="segundos">0</span>
+            <small>Seg</small>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="boton-album">
+
+    <h3 class="titulo-album">
+    ★ Álbum ★
+</h3>
+
+<button onclick="abrirAlbum()">
+    Ver recuerdos
+</button>
+
+</div>
+
+
+
+
+
+<div class="album" id="album">
+
+    <h3 class="titulo-recuerdos">
+     Mis recuerdos 
+</h3>
+
+   <div class="fotos">
+
+<img src="fotos/foto1.jpeg" onclick="verFoto(this)">
+<img src="fotos/foto2.jpeg">
+<img src="fotos/foto3.jpeg">
+<img src="fotos/foto4.jpeg">
+<img src="fotos/foto5.jpeg">
+<img src="fotos/foto6.jpeg">
+<img src="fotos/foto7.jpeg">
+<img src="fotos/foto8.jpeg">
+<img src="fotos/foto9.jpeg">
+<img src="fotos/foto10.jpeg">
+<img src="fotos/foto11.jpeg">
+<img src="fotos/foto12.jpeg">
+
+</div>
+
+</div>
+
+<div class="alias">
+
+    <p class="mensaje-regalo">
+        Tu presencia sería el mejor regalo,<br>
+        pero si deseas obsequiarme algo mi alias es...
+    </p>
+
+    <p id="aliasTexto">
+        luz.nerea.reinoso
+    </p>
+
+    <button onclick="copiarAlias()">
+        Copiar
+    </button>
+
+</div>
+
+
+    <div class="particulas">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+
+   
+
+
+</div>
+
+<div class="visor" id="visor" onclick="cerrarFoto()">
+
+    <img id="fotoGrande">
+
+</div>
+
+<!-- MÚSICA -->
+<audio id="musica" loop>
+    <source src="cancion.mp3" type="audio/mpeg">
+</audio>
+
+
+
+<!-- JAVASCRIPT VA AL FINAL -->
+<script>
+
+
+function abrirInvitacion(){
+
+    let portada = document.querySelector(".portada");
+
+    let musica = document.getElementById("musica");
+
+
+    musica.play();
+
+
+    portada.classList.add("oculta");
+
+}
+
+
+
+function abrirAlbum(){
+
+    let album = document.getElementById("album");
+
+    if(album.style.display === "block"){
+
+        album.style.display = "none";
+
+    } else {
+
+        album.style.display = "block";
+
+    }
+
+}
+
+function verFoto(imagen){
+
+    let visor = document.getElementById("visor");
+
+    let fotoGrande = document.getElementById("fotoGrande");
+
+
+    fotoGrande.src = imagen.src;
+
+    visor.style.display = "flex";
+
+}
+
+
+
+function cerrarFoto(){
+
+    document.getElementById("visor").style.display="none";
+
+}
+
+function copiarAlias(){
+
+    let alias = document.getElementById("aliasTexto").innerText;
+
+    navigator.clipboard.writeText(alias);
+
+    alert("Alias copiado al portapapeles ✦");
+
+}
+
+document.querySelectorAll(".fotos img").forEach(function(foto){
+
+    foto.addEventListener("click", function(){
+
+        verFoto(this);
+
+    });
+
+});
+
+const fechaEvento = new Date("November 7, 2026 21:00:00").getTime();
+
+
+setInterval(function(){
+
+    let ahora = new Date().getTime();
+
+    let distancia = fechaEvento - ahora;
+
+
+    let dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+
+    let horas = Math.floor(
+        (distancia % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+    );
+
+
+    let minutos = Math.floor(
+        (distancia % (1000 * 60 * 60)) /
+        (1000 * 60)
+    );
+
+
+    let segundos = Math.floor(
+        (distancia % (1000 * 60)) /
+        1000
+    );
+
+
+    document.getElementById("dias").innerHTML = dias;
+
+    document.getElementById("horas").innerHTML = horas;
+
+    document.getElementById("minutos").innerHTML = minutos;
+
+    document.getElementById("segundos").innerHTML = segundos;
+
+
+},1000);
+
+window.onload = function(){
+
+    document.querySelectorAll(".fotos img").forEach(function(foto){
+
+        foto.onclick = function(){
+
+            verFoto(this);
+
+        };
+
+    });
+
+};
+
+</script>
+
+
+</body>
+
+</html>
+
+
